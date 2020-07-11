@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "gAqNx6+AxVdynGQiHAFPIL5Gckm+l/AlXf1fAvIiPXc25NZ3/p9Cwp3zVxTqnuEsvgRiThs29rXS80rd9n2lKg==",
+  "success": true,
+  "projectFilePath": "D:\\MecanicApp\\TallerMecanica.Model\\TallerMecanica.Model.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jose r garcia\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
