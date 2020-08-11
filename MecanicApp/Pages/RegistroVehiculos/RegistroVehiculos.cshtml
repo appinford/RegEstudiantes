@@ -1,0 +1,61 @@
+﻿@page
+
+@model MecanicApp.Pages.RegistroVehiculos.RegistroVehiculosModel
+@{
+    ViewData["Title"] = "RegistroVehiculos";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<h1>Vehiculos</h1>
+
+@if (!string.IsNullOrEmpty(Model.MensajeEliminacion))
+{
+    <label class="alert-info">@Model.MensajeEliminacion</label>
+}
+
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="texto" asp-for="Texto">
+
+        <div class="input-group-append">
+            <button class="input-group-text" type="submit">Buscar Vehículo</button>
+        </div>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+
+        <tr>
+            <th>Id</th>
+            <th>Matricula</th>
+            <th>Marca</th>
+            <th>Año de Fabricación</th>
+            <th>Color</th>
+            <th>Tipo de Transmisión</th>
+            <th>Lugar de Fabricación</th>
+            <th>Descripción del Problema</th>
+
+        </tr>
+    </thead>
+    @foreach (var vehiculos in Model.Vehiculos)
+    {
+        <tr>
+            <td> @vehiculos.Id </td>
+            <td> @vehiculos.Matricula </td>
+            <td> @vehiculos.Marca</td>
+            <td> @vehiculos.AnoFab </td>
+            <td> @vehiculos.Color </td>
+            <td> @vehiculos.TipoTransmision </td>
+            <td> @vehiculos.LugarFab </td>
+            <td> @vehiculos.DescProblema </td>
+            <td> <a asp-page="./DetalleVehiculo" asp-route-Id="@vehiculos.Id" class="btn btn-success" style="cursor:pointer">Ver detalle</a>  </td>
+            <td> <a asp-page="./Editar" asp-route-Id="@vehiculos.Id" asp-route-Idcliente="0" class="btn btn-warning" style="cursor:pointer">Editar</a>  </td>
+            <td> <a asp-page="./Eliminar" asp-route-Id="@vehiculos.Id" class="btn btn-danger" style="cursor:pointer">Eliminar</a>  </td>
+        </tr>
+    }
+</table>
+
+ <a asp-page="./Editar" class="btn btn-success">Nuevo</a>

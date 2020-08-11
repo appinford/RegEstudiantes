@@ -1,0 +1,52 @@
+﻿@page
+@model MecanicApp.Pages.Reporte.Reg_ReporteModel
+@{
+    ViewData["Title"] = "Reg_Reporte";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Reporte por Estatus</h1>
+
+
+<form method="get">
+    <div class="input-group mb-3">
+
+        <div class="form-group">
+            <label asp-for="Texto">Estatus</label>
+            <select asp-for="Texto" class="form-control" asp-items="@Model.Estatus" value="0">Pendiente</select>
+        </div>
+
+        <div class="input-group-append">
+            <button class="input-group-text" type="submit">Buscar</button>
+        </div>
+    </div>
+</form>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Matricula</th>
+            <th>Estatus</th>
+            <th>Cliente</th>
+            <th>Vehiculo</th>
+            <th>Mecanico</th>
+            <th>Fecha de Asignación</th>
+            <th>Fecha de Terminado</th>
+        </tr>
+    </thead>
+    @foreach (var orden in Model.OrdenRep)
+    {
+        <tr>
+            <td> @orden.Matricula </td>
+            <td> @orden.Estatus </td>
+            <td> @orden.Cliente_Nombres @orden.Cliente_Apellidos</td>
+            <td> @orden.Matricula @orden.Marca @orden.AnoFab @orden.Color</td>
+            <td> @orden.Mecanico_Nombres @orden.Mecanico_Apellidos </td>
+            <td> @orden.Fecha_Asignacion </td>
+            <td> @orden.Fecha_Terminado </td>
+
+        </tr>
+    }
+</table>

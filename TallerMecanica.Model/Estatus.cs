@@ -1,8 +1,12 @@
-﻿namespace TallerMecanica.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TallerMecanica.Model
 {
+  
     public enum Estatus
     {
-        Pendiente, 
+        Pendiente,
+        [Display(Name = "En Proceso")]
         En_Proceso,
         Reparado,
         No_Reparado,

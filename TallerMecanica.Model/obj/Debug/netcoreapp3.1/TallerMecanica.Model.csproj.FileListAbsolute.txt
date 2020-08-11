@@ -1,0 +1,9 @@
+D:\MecanicApp\TallerMecanica.Model\bin\Debug\netcoreapp3.1\TallerMecanica.Model.deps.json
+D:\MecanicApp\TallerMecanica.Model\bin\Debug\netcoreapp3.1\TallerMecanica.Model.dll
+D:\MecanicApp\TallerMecanica.Model\bin\Debug\netcoreapp3.1\TallerMecanica.Model.pdb
+D:\MecanicApp\TallerMecanica.Model\obj\Debug\netcoreapp3.1\TallerMecanica.Model.csprojAssemblyReference.cache
+D:\MecanicApp\TallerMecanica.Model\obj\Debug\netcoreapp3.1\TallerMecanica.Model.AssemblyInfoInputs.cache
+D:\MecanicApp\TallerMecanica.Model\obj\Debug\netcoreapp3.1\TallerMecanica.Model.AssemblyInfo.cs
+D:\MecanicApp\TallerMecanica.Model\obj\Debug\netcoreapp3.1\TallerMecanica.Model.csproj.CoreCompileInputs.cache
+D:\MecanicApp\TallerMecanica.Model\obj\Debug\netcoreapp3.1\TallerMecanica.Model.dll
+D:\MecanicApp\TallerMecanica.Model\obj\Debug\netcoreapp3.1\TallerMecanica.Model.pdb

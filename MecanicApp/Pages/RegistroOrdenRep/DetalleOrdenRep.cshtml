@@ -1,0 +1,58 @@
+﻿@page
+@model MecanicApp.Pages.RegistroOrdenRep.DetalleOrdenRepModel
+@{
+    ViewData["Title"] = "DetalleOrdenRep";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Detalle Orden Reparación</h1>
+
+
+<h2>@Model.OrdenRep.Id</h2>
+<div>
+    <label style="font-weight:bold">Id:</label>
+    <br />
+    @Model.OrdenRep.Id
+</div>
+<div>
+    <label style="font-weight:bold">Vehiculo:</label>
+    <br />
+    @Model.OrdenRep.Vehiculo
+</div>
+<div>
+    <label style="font-weight:bold">Mecánico:</label>
+    <br />
+    @Model.OrdenRep.Mecanico
+</div>
+<div>
+    <label style="font-weight:bold">Estatus:</label>
+    <br />
+    @Model.OrdenRep.Estatus
+</div>
+<div>
+    <label style="font-weight:bold">Resolución:</label>
+    <br />
+    @Model.OrdenRep.Resolucion
+</div>
+<div>
+    <label style="font-weight:bold">Decisión Final:</label>
+    <br />
+    @Model.OrdenRep.DecisionFinal
+</div>
+<div>
+    <label style="font-weight:bold">Motivo No Reparado:</label>
+    <br />
+    @Model.OrdenRep.MotivoNoRep
+</div>
+<div>
+    <label style="font-weight:bold">Fecha de Asignación:</label>
+    <br />
+    @Model.OrdenRep.Fecha_Asignacion
+</div>
+<div>
+    <label style="font-weight:bold">Fecha Terminado:</label>
+    <br />
+    @Model.OrdenRep.Fecha_Terminado
+</div>
+
+<a class="btn btn-primary" asp-page="./RegistroOrdenRep">Volver a Consulta</a>

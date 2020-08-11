@@ -19,11 +19,55 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/RegistroClientes/RegistroClientes">Clientes </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/RegistroVehiculos/RegistroVehiculos">Vehículos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/RegistroMecanicos/RegistroMecanicos">Mecánicos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Ingreso/Paso1">Ingreso al Taller</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/RegistroOrdenRep/RegistroOrdenRep">Orden Reparación</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Reporte/Reg_Reporte">Reportes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Acerca de</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.Name</a>
+                                <div class="dropdown-menu">
+                                    <form asp-page="/CerrarSesion" method="post">
+                                        <a class="dropdown-item">
+                                            <input type="submit" value=" Cerrar Sesion" />
+                                        </a>
+                                    </form>
+
+                                    <a class="dropdown-item">
+                                        <a class="nav-link text-dark" asp-page="/Usuario/Identidad">Ver Identidad</a>
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/IniciarSesion">Iniciar Sesion</a>
+                            </li>
+
+                        }
+
                     </ul>
                 </div>
             </div>
@@ -37,7 +81,10 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - MecanicApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; <a> 2020 - MecanicApp</a>
+
+            <br />
+            @RenderSection("pieDePagina", required: false)
         </div>
     </footer>
 

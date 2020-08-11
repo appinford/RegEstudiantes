@@ -8,6 +8,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TallerMecanica.Data;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace MecanicApp
 {
@@ -23,7 +28,26 @@ namespace MecanicApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddDbContextPool<TallerMecanicaContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("MecanicAppDB"));
+            });
+
+            services.AddScoped<IClienteService, RegistroClientesService>();
+            services.AddScoped<IVehiculoService, RegistroVehiculoService>();
+            services.AddScoped<IMecanicoService, RegistroMecanicoService>();
+            services.AddScoped<IOrdenRepService, OrdenRepService>();
+
+            services.AddRazorPages().AddMvcOptions(c => c.Filters.Add(new AuthorizeFilter()));
+            services.AddControllers();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(op =>
+            {
+                op.LoginPath = "/IniciarSesion";
+                op.AccessDeniedPath = "/AccesoDenegado";
+                //op.ExpireTimeSpan = span;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,14 +66,13 @@ namespace MecanicApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
+            app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

@@ -1,0 +1,128 @@
+﻿@page  "{idcliente:int?}/{nombre?}/{apellido?}/{idvehiculo:int?}/{matricula?}/{marca?}/{anofab?}/{color?}/{mecid?}/{mecnombre?}/{mecapellido?}"
+@model MecanicApp.Pages.Ingreso.Paso4Model
+@{
+    ViewData["Title"] = "Paso4";
+}
+
+
+
+    <h1>Ingreso al Taller</h1>
+    <table class="table">
+        <thead>
+            <tr><th>Datos del Cliente : @Model.Idcliente - @Model.Nombres  @Model.Apellidos</th></tr>
+            <tr><th>Datos del Vehículo: @Model.IdVehiculo - @Model.Matricula  @Model.Marca1  @Model.AnoFab  @Model.Color1 </th></tr>
+            <tr><th>Mecánico Asignado : @Model.IdMecanico - @Model.NomMecanico  @Model.ApeMecanico </th></tr>
+        </thead>
+    </table>
+
+    <h2>Paso 4 -  Crear la Orden </h2>
+
+    <form method="post">
+        @*<input type="hidden" asp-for="OrdenRep.Id" />*@
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.NumeroOrden">Número de Orden</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.NumeroOrden" value="@Model.Matricula" />
+            <span class="text-danger" asp-validation-for="OrdenRep.NumeroOrden"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.Cliente_Nombres">Nombre del Cliente</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.Cliente_Nombres" value="@Model.Nombres" />
+            <span class="text-danger" asp-validation-for="OrdenRep.Cliente_Nombres"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.Cliente_Apellidos">Apellido del Cliente</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.Cliente_Apellidos" value="@Model.Apellidos" />
+            <span class="text-danger" asp-validation-for="OrdenRep.Cliente_Apellidos"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.ClienteId">Id Del Cliente</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.ClienteId" value="@Model.Idcliente" />
+            <span class="text-danger" asp-validation-for="OrdenRep.ClienteId"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.Mecanico_Nombres">Nombre del Mecánico</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.Mecanico_Nombres" value="@Model.NomMecanico" />
+            <span class="text-danger" asp-validation-for="OrdenRep.Mecanico_Nombres"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.Mecanico_Apellidos">Apellido del Mecánico</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.Mecanico_Apellidos" value="@Model.ApeMecanico" />
+            <span class="text-danger" asp-validation-for="OrdenRep.Mecanico_Apellidos"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.MecanicoId">Id Del Mecánico</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.MecanicoId" value="@Model.IdMecanico" />
+            <span class="text-danger" asp-validation-for="OrdenRep.MecanicoId"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.Marca">Marca</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.Marca" value="@Model.Marca1" />
+            <span class="text-danger" asp-validation-for="OrdenRep.Marca"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.Matricula">Matrícula</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.Matricula" value="@Model.Matricula" />
+            <span class="text-danger" asp-validation-for="OrdenRep.Matricula"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.AnoFab">Año</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.AnoFab" value="@Model.AnoFab" />
+            <span class="text-danger" asp-validation-for="OrdenRep.AnoFab"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.Color">Color</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.Color" value="@Model.Color1" />
+            <span class="text-danger" asp-validation-for="OrdenRep.Color"></span>
+        </div>
+
+        <div class="form-group">
+            @*<label asp-for="OrdenRep.VehiculoId">IdVehiculo</label>*@
+            <input type="hidden" class="form-control" asp-for="OrdenRep.VehiculoId" value="@Model.IdVehiculo" />
+            <span class="text-danger" asp-validation-for="OrdenRep.VehiculoId"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="OrdenRep.Estatus">Estatus</label>
+            <select asp-for="OrdenRep.Estatus" class="form-control" asp-items="@Model.Estatus">
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="OrdenRep.Resolucion">Resolución</label>
+            <input type="text" class="form-control" asp-for="OrdenRep.Resolucion" />
+            <span class="text-danger" asp-validation-for="OrdenRep.Resolucion"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="OrdenRep.DecisionFinal">Decisión Final</label>
+            <input type="text" class="form-control" asp-for="OrdenRep.DecisionFinal" />
+            <span class="text-danger" asp-validation-for="OrdenRep.DecisionFinal"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="OrdenRep.MotivoNoRep">Motivo No Reparado</label>
+            <input type="text" class="form-control" asp-for="OrdenRep.MotivoNoRep" />
+            <span class="text-danger" asp-validation-for="OrdenRep.MotivoNoRep"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="OrdenRep.Fecha_Asignacion">Fecha de Asignación</label>
+            <input type="date" class="form-control" asp-for="OrdenRep.Fecha_Asignacion" />
+            <span class="text-danger" asp-validation-for="OrdenRep.Fecha_Asignacion"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="OrdenRep.Fecha_Terminado">Fecha Compromiso</label>
+            <input type="date" class="form-control" asp-for="OrdenRep.Fecha_Terminado" />
+            <span class="text-danger" asp-validation-for="OrdenRep.Fecha_Terminado"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+
+    </form>

@@ -1,0 +1,68 @@
+﻿@page
+@model MecanicApp.Pages.RegistroVehiculos.DetalleVehiculoModel
+@{
+    ViewData["Title"] = "DetalleVehiculo";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Detalle Vehiculo</h1>
+
+
+<h2>@Model.Vehiculo.Id</h2>
+<div>
+    <label style="font-weight:bold">Id:</label>
+    <br />
+    @Model.Vehiculo.Id
+</div>
+<div>
+    <label style="font-weight:bold">Matricula:</label>
+    <br />
+    @Model.Vehiculo.Matricula
+</div>
+<div>
+    <label style="font-weight:bold">Marca:</label>
+    <br />
+    @Model.Vehiculo.Marca
+</div>
+<div>
+    <label style="font-weight:bold">Año de Fabricación:</label>
+    <br />
+    @Model.Vehiculo.AnoFab
+</div>
+<div>
+    <label style="font-weight:bold">Color: </label>
+    <br />
+    @Model.Vehiculo.Color
+</div>
+<div>
+    <label style="font-weight:bold">Tipo de Transmisión: </label>
+    <br />
+    @Model.Vehiculo.TipoTransmision
+</div>
+<div>
+    <label style="font-weight:bold">Lugar de Fabricación: </label>
+    <br />
+    @Model.Vehiculo.LugarFab
+</div>
+<div>
+    <label style="font-weight:bold">Descripción Problema: </label>
+    <br />
+    @Model.Vehiculo.DescProblema
+</div>
+<div>
+    <label style="font-weight:bold">Comentario: </label>
+    <br />
+    @Model.Vehiculo.Comentario
+</div>
+<div>
+    <label style="font-weight:bold">Fecha Ingreso: </label>
+    <br />
+    @Model.Vehiculo.FechaIngreso
+</div>
+<div>
+    <label style="font-weight:bold">Fecha Entrega: </label>
+    <br />
+    @Model.Vehiculo.FechaEntrega
+</div>
+
+<a class="btn btn-primary" asp-page="./RegistroVehiculos">Volver a Consulta</a>

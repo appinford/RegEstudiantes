@@ -1,0 +1,23 @@
+﻿@page
+@model MecanicApp.Pages.RegistroMecanicos.DetalleMecanicoModel
+@{
+    ViewData["Title"] = "DetalleMecanico";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Detalle Mecanico</h1>
+
+
+<h2>@Model.Mecanico.Nombres @Model.Mecanico.Apellidos</h2>
+<div>
+    <label style="font-weight:bold">Id:</label>
+    <br />
+    @Model.Mecanico.Id
+</div>
+<div>
+    <label style="font-weight:bold">Cedula:</label>
+    <br />
+    @Model.Mecanico.HabilidadRep
+</div>
+
+<a class="btn btn-primary" asp-page="./RegistroMecanicos">Volver a Consulta</a>

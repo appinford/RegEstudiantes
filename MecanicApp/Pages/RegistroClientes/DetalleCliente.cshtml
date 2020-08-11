@@ -1,0 +1,38 @@
+﻿@page
+@model MecanicApp.Pages.RegistroClientes.DetalleClienteModel
+@{
+    ViewData["Title"] = "DetalleCliente";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Detalle Cliente</h1>
+
+<h2>@Model.Cliente.Nombres @Model.Cliente.Apellidos</h2>
+    <div>
+        <label style="font-weight:bold">Id:</label>
+        <br />
+        @Model.Cliente.Id
+    </div>
+    <div>
+        <label style="font-weight:bold">Cedula:</label>
+        <br />
+        @Model.Cliente.Cedula
+    </div>
+    <div>
+        <label style="font-weight:bold">Dirección:</label>
+        <br />
+        @Model.Cliente.Direccion
+    </div>
+    <div>
+        <label style="font-weight:bold">Sector: </label>
+        <br />
+        @Model.Cliente.Sector
+    </div>
+    <div>
+        <label style="font-weight:bold">Ciudad: </label>
+        <br />
+        @Model.Cliente.Ciudad
+    </div>
+
+
+<a class="btn btn-primary" asp-page="./RegistroClientes">Volver a Consulta</a>

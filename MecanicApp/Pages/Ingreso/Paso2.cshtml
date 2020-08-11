@@ -1,0 +1,67 @@
+﻿@page   "{Id:int?}/{nombre?}/{apellido?}"
+@model MecanicApp.Pages.Ingreso.Paso2Model
+@{
+    ViewData["Title"] = "Paso2Model";
+}
+
+
+<h1>Ingreso al Taller</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Datos del Cliente: @Model.Idcliente  @Model.Nombres  @Model.Apellidos
+            <th>
+        </tr>
+    </thead>
+</table>
+
+
+<h2>Paso 2 - DATOS DEL VEHICULO</h2>
+
+@if (!string.IsNullOrEmpty(Model.MensajeEliminacion))
+{
+    <label class="alert-info">@Model.MensajeEliminacion</label>
+}
+
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="texto" asp-for="Texto">
+
+        <div class="input-group-append">
+            <button class="input-group-text" type="submit">Buscar Vehículo</button>
+        </div>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+
+        <tr>
+            <th>Id</th>
+            <th>Matricula</th>
+            <th>Marca</th>
+            <th>Año de Fabricación</th>
+            <th>Color</th>
+            <th>Tipo de Transmisión</th>
+            <th>Lugar de Fabricación</th>
+            <th>Descripción del Problema</th>
+        </tr>
+    </thead>
+    @foreach (var vehiculos in Model.Vehiculos)
+    {
+        <tr>
+            <td> @vehiculos.Id </td>
+            <td> @vehiculos.Matricula </td>
+            <td> @vehiculos.Marca</td>
+            <td> @vehiculos.AnoFab </td>
+            <td> @vehiculos.Color </td>
+            <td> @vehiculos.TipoTransmision </td>
+            <td> @vehiculos.LugarFab </td>
+            <td> @vehiculos.DescProblema </td>
+            <td> <a asp-page="/Ingreso/Paso3" class="btn btn-success" style="cursor:pointer" asp-route-id="@Model.Idcliente" asp-route-nombre="@Model.Nombres" asp-route-apellido="@Model.Apellidos" asp-route-idvehiculo="@vehiculos.Id"  asp-route-matricula="@vehiculos.Matricula" asp-route-marca="@vehiculos.Marca" asp-route-anofab="@vehiculos.AnoFab" asp-route-color="@vehiculos.Color">Seleccionar Vehiculo</a></td>
+        </tr>
+    }
+</table>
+
+

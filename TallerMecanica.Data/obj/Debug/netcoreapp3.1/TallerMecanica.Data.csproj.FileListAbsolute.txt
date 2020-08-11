@@ -1,0 +1,15 @@
+D:\MecanicApp\TallerMecanica.Data\bin\Debug\netcoreapp3.1\TallerMecanica.Data.deps.json
+D:\MecanicApp\TallerMecanica.Data\bin\Debug\netcoreapp3.1\TallerMecanica.Data.runtimeconfig.json
+D:\MecanicApp\TallerMecanica.Data\bin\Debug\netcoreapp3.1\TallerMecanica.Data.runtimeconfig.dev.json
+D:\MecanicApp\TallerMecanica.Data\bin\Debug\netcoreapp3.1\TallerMecanica.Data.dll
+D:\MecanicApp\TallerMecanica.Data\bin\Debug\netcoreapp3.1\TallerMecanica.Data.pdb
+D:\MecanicApp\TallerMecanica.Data\bin\Debug\netcoreapp3.1\TallerMecanica.Model.dll
+D:\MecanicApp\TallerMecanica.Data\bin\Debug\netcoreapp3.1\TallerMecanica.Model.pdb
+D:\MecanicApp\TallerMecanica.Data\obj\Debug\netcoreapp3.1\TallerMecanica.Data.csprojAssemblyReference.cache
+D:\MecanicApp\TallerMecanica.Data\obj\Debug\netcoreapp3.1\TallerMecanica.Data.AssemblyInfoInputs.cache
+D:\MecanicApp\TallerMecanica.Data\obj\Debug\netcoreapp3.1\TallerMecanica.Data.AssemblyInfo.cs
+D:\MecanicApp\TallerMecanica.Data\obj\Debug\netcoreapp3.1\TallerMecanica.Data.csproj.CoreCompileInputs.cache
+D:\MecanicApp\TallerMecanica.Data\obj\Debug\netcoreapp3.1\TallerMecanica.Data.csproj.CopyComplete
+D:\MecanicApp\TallerMecanica.Data\obj\Debug\netcoreapp3.1\TallerMecanica.Data.dll
+D:\MecanicApp\TallerMecanica.Data\obj\Debug\netcoreapp3.1\TallerMecanica.Data.pdb
+D:\MecanicApp\TallerMecanica.Data\obj\Debug\netcoreapp3.1\TallerMecanica.Data.genruntimeconfig.cache

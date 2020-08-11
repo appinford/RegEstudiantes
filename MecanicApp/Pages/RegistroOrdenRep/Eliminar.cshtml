@@ -1,0 +1,15 @@
+﻿@page
+@model MecanicApp.Pages.RegistroOrdenRep.EliminarModel
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar</h1>
+
+
+
+<form method="post">
+    Seguro que desea eliminar esta orden @Model.OrdenRep.Id
+    <button type="submit" class="btn btn-danger">Eliminar!</button>
+</form>

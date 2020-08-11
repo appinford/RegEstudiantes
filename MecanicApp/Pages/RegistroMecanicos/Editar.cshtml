@@ -1,0 +1,34 @@
+﻿@page "{Id:Int?}"
+@model MecanicApp.Pages.RegistroMecanicos.EditarModel
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Editar</h1>
+
+Esta editando el mecánico
+<h2>@Model.Mecanico.Nombres  @Model.Mecanico.Nombres  </h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Mecanico.Id" />
+
+    <div class="form-group">
+        <label asp-for="Mecanico.Nombres">Nombre</label>
+        <input type="text" class="form-control" asp-for="Mecanico.Nombres" />
+        <span class="text-danger" asp-validation-for="Mecanico.Nombres"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Mecanico.Apellidos">Apellidos</label>
+        <input type="text" class="form-control" asp-for="Mecanico.Apellidos" />
+        <span class="text-danger" asp-validation-for="Mecanico.Apellidos"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Mecanico.HabilidadRep">Mecanico</label>
+        <input type="text" class="form-control" asp-for="Mecanico.HabilidadRep" />
+        <span class="text-danger" asp-validation-for="Mecanico.HabilidadRep"></span>
+    </div>
+ 
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+
+</form>

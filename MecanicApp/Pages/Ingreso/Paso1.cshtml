@@ -1,0 +1,53 @@
+﻿@page
+@model MecanicApp.Pages.Ingreso.Paso1Model
+@{
+    ViewData["Title"] = "Paso1Model";
+}
+
+<h1>Ingreso al Taller</h1>
+<h2>Paso 1 -  Seleccionar el cliente</h2>
+
+@if (!string.IsNullOrEmpty(Model.MensajeEliminacion))
+{
+    <label class="alert-info">@Model.MensajeEliminacion</label>
+}
+
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="texto" asp-for="Texto">
+
+        <div class="input-group-append">
+            <button class="input-group-text" type="submit">Buscar Cliente</button>
+        </div>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Cédula</th>
+            <th>Dirección</th>
+            <th>Sector</th>
+            <th>Ciudad</th>
+        </tr>
+    </thead>
+    @foreach (var clientes in Model.Clientes)
+    {
+        <tr>
+            <td> @clientes.Id</td>
+            <td> @clientes.Nombres</td>
+            <td> @clientes.Apellidos</td>
+            <td> @clientes.Cedula</td>
+            <td> @clientes.Direccion</td>
+            <td> @clientes.Sector</td>
+            <td> @clientes.Ciudad</td>
+            <td> <a asp-page="/Ingreso/Paso2" asp-route-id="@clientes.Id"  class="btn btn-success" style="cursor:pointer" asp-route-nombre="@clientes.Nombres" asp-route-apellido="@clientes.Apellidos">Seleccionar Cliente</a></td>
+        </tr>
+
+    }
+</table>
+

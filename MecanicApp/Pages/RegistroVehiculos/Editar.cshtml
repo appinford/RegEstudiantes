@@ -1,0 +1,72 @@
+﻿@page "{Id:Int?}" 
+@model MecanicApp.Pages.RegistroVehiculos.EditarModel
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Editar</h1>
+
+Esta editando el vehiculo
+<h2>@Model.Vehiculo.Id </h2>
+
+
+<form method="post">
+    <input type="hidden" asp-for="Vehiculo.Id" />
+
+    <div class="form-group">
+        <label asp-for="Vehiculo.Matricula">Matricula</label>
+        <input type="text" class="form-control" asp-for="Vehiculo.Matricula" />
+        <span class="text-danger" asp-validation-for="Vehiculo.Matricula"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Vehiculo.Marca">Marca</label>
+        <select asp-for="Vehiculo.Marca" class="form-control" asp-items="@Model.Marcas">
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Vehiculo.AnoFab">Año de Fabricación</label>
+        <input type="text" class="form-control" asp-for="Vehiculo.AnoFab" />
+        <span class="text-danger" asp-validation-for="Vehiculo.AnoFab"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Vehiculo.Color">Color</label>
+        <select asp-for="Vehiculo.Color" class="form-control" asp-items="@Model.Color">
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Vehiculo.TipoTransmision">Tipo de Transmisión</label>
+        <select asp-for="Vehiculo.TipoTransmision" class="form-control" asp-items="@Model.TipoTransmision">
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Vehiculo.LugarFab">Lugar de Fabricación</label>
+        <select asp-for="Vehiculo.LugarFab" class="form-control" asp-items="@Model.LugarFab">
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Vehiculo.DescProblema">Descripción del Problema</label>
+        <input type="text" class="form-control" asp-for="Vehiculo.DescProblema" />
+        <span class="text-danger" asp-validation-for="Vehiculo.DescProblema"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Vehiculo.Comentario">Comentario</label>
+        <input type="text" class="form-control" asp-for="Vehiculo.Comentario" />
+        <span class="text-danger" asp-validation-for="Vehiculo.Comentario"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Vehiculo.FechaIngreso">Fecha Ingreso</label>
+        <input type="date" class="form-control" asp-for="Vehiculo.FechaIngreso" />
+        <span class="text-danger" asp-validation-for="Vehiculo.FechaIngreso"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Vehiculo.FechaEntrega">Fecha Entrega</label>
+        <input type="date" class="form-control" asp-for="Vehiculo.FechaEntrega" />
+        <span class="text-danger" asp-validation-for="Vehiculo.FechaEntrega"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+
+</form>
+<a class="btn btn-primary" asp-page="./RegistroVehiculos">Retornar</a>

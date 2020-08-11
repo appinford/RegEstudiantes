@@ -1,0 +1,15 @@
+﻿@page  "{Id:int}"
+@model MecanicApp.Pages.RegistroClientes.EliminarModel
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar</h1>
+
+<form method="post">
+    Seguro que desea eliminar este cliente @Model.Cliente.Nombres @Model.Cliente.Apellidos
+    <button type="submit" class="btn btn-danger">Eliminar!</button>
+</form>
+
+<a class="btn btn-primary" asp-page="./RegistroClientes">Retornar</a>

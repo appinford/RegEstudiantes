@@ -1,0 +1,55 @@
+﻿@page
+@model MecanicApp.Pages.RegistroOrdenRep.BuscarVehiculoModel
+@{
+    ViewData["Title"] = "BuscarVehiculo";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Buscar Vehiculo</h1>
+
+
+
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="texto" asp-for="Texto">
+
+        <div class="input-group-append">
+            <button class="input-group-text" type="submit">Buscar</button>
+        </div>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Matricula</th>
+            <th>Cliente</th>
+            <th>Marca</th>
+            <th>Año de Fabricación</th>
+            <th>Color</th>
+            <th>Tipo de Transmisión</th>
+            <th>Lugar de Fabricación</th>
+            <th>Descripción del Problema</th>
+
+        </tr>
+    </thead>
+    @foreach (var vehiculos in Model.Vehiculos)
+    {
+        <tr>
+            <td> @vehiculos.Id </td>
+            <td> @vehiculos.Matricula </td>
+            <td> @vehiculos.Marca</td>
+            <td> @vehiculos.AnoFab </td>
+            <td> @vehiculos.Color </td>
+            <td> @vehiculos.TipoTransmision </td>
+            <td> @vehiculos.LugarFab </td>
+            <td> @vehiculos.DescProblema </td>
+
+              <td> <a asp-page="./RegistroOrdenRep" asp-route-data="@vehiculos.Id" class="btn btn-danger" style="cursor:pointer">Seleccionar</a>  </td>
+
+        </tr>
+    }
+</table>
+

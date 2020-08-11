@@ -1,0 +1,57 @@
+﻿@page 
+@model MecanicApp.Pages.RegistroOrdenRep.RegistroOrdenRepModel
+@{
+    ViewData["Title"] = "RegistroOrdenRep";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Registro Orden de Reparación</h1>
+
+
+@if (!string.IsNullOrEmpty(Model.MensajeEliminacion))
+{
+    <label class="alert-info">@Model.MensajeEliminacion</label>
+}
+
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="texto" asp-for="Texto">
+
+        <div class="input-group-append">
+            <button class="input-group-text" type="submit">Buscar</button>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Estatus</th>
+            <th>Cliente</th>
+            <th>Vehiculo</th>
+            <th>Mecanico</th>
+            <th>Fecha de Asignación</th>
+            <th>Fecha de Terminado</th>
+        </tr>
+    </thead>
+    @foreach (var orden in Model.OrdenRep)
+    {
+<tr>
+    <td> @orden.Id </td>
+    <td> @orden.Estatus </td>
+    <td> @orden.Cliente_Nombres @orden.Cliente_Apellidos</td>
+    <td> @orden.Matricula @orden.Marca @orden.AnoFab @orden.Color</td>
+    <td> @orden.Mecanico_Nombres @orden.Mecanico_Apellidos </td>
+    <td> @orden.Fecha_Asignacion </td>
+    <td> @orden.Fecha_Terminado </td>
+    <td> <a asp-page="./Editar" class="btn btn-success" style="cursor:pointer" asp-route-idcliente="@orden.ClienteId" asp-route-nombre="@orden.Cliente_Nombres" asp-route-apellido="@orden.Cliente_Apellidos" asp-route-idvehiculo="@orden.VehiculoId" asp-route-matricula="@orden.Matricula" asp-route-marca="@orden.Marca" asp-route-anofab="@orden.AnoFab" asp-route-color="@orden.Color" asp-route-mecid="@orden.MecanicoId" asp-route-mecnombre="@orden.Mecanico_Nombres" asp-route-mecapellido="@orden.Mecanico_Apellidos">Seguimiento</a></td>
+    <td> <a asp-page="./DetalleOrden" asp-route-Id="@orden.Id" class="btn btn-success" style="cursor:pointer">Ver detalle</a>  </td>
+    @*<td> <a asp-page="./Editar" asp-route-Id="@orden.Id" class="btn btn-warning" style="cursor:pointer">Editar</a>  </td>*@
+    <td> <a asp-page="./Eliminar" asp-route-Id="@orden.Id" class="btn btn-danger" style="cursor:pointer">Eliminar</a>  </td>
+
+</tr>
+    }
+</table>
+
+@*<a asp-page="./Editar" class="btn btn-success">Crear Orden</a>*@

@@ -1,0 +1,60 @@
+﻿@page  "{Id:int?}/{nombre?}/{apellido?}/{idvehiculo:int?}/{matricula?}/{marca?}/{anofab?}/{color?}"
+@model MecanicApp.Pages.Ingreso.Paso3Model
+@{
+    ViewData["Title"] = "Paso3Model";
+
+}
+
+<h1>Ingreso al Taller</h1>
+<table class="table">
+    <thead>
+        <tr><th>Datos del Cliente:  @Model.Idcliente - @Model.Nombres  @Model.Apellidos</th></tr>
+        <tr><th>Datos del Vehículo: @Model.IdVehiculo - @Model.Matricula - @Model.Marca  @Model.AnoFab  @Model.Color </th></tr>
+
+    </thead>
+</table>
+
+
+<h2>Paso 3 -  ASIGNAR MECANICO</h2>
+
+
+@if (!string.IsNullOrEmpty(Model.MensajeEliminacion))
+{
+    <label class="alert-info">@Model.MensajeEliminacion</label>
+}
+
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="texto" asp-for="Texto">
+
+        <div class="input-group-append">
+            <button class="input-group-text" type="submit">Buscar</button>
+        </div>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Habilidades Reparación</th>
+
+        </tr>
+    </thead>
+    @foreach (var mecanicos in Model.Mecanicos)
+    {
+<tr>
+    <td> @mecanicos.Id </td>
+    <td>
+        @mecanicos.Nombres
+    </td>
+    <td> @mecanicos.Apellidos </td>
+    <td> @mecanicos.HabilidadRep </td>
+    <td> <a asp-page="/Ingreso/Paso4"  class="btn btn-success" style="cursor:pointer"  asp-route-idcliente="@Model.Idcliente" asp-route-nombre="@Model.Nombres" asp-route-apellido="@Model.Apellidos" asp-route-idvehiculo="@Model.IdVehiculo" asp-route-matricula="@Model.Matricula" asp-route-marca="@Model.Marca" asp-route-anofab="@Model.AnoFab" asp-route-color="@Model.Color"  asp-route-mecid="@mecanicos.Id"  asp-route-mecnombre="@mecanicos.Nombres"  asp-route-mecapellido="@mecanicos.Apellidos">Asignar Mecánico</a></td>
+</tr>
+    }
+</table>
+

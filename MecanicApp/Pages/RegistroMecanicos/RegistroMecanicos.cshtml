@@ -1,0 +1,52 @@
+﻿@page 
+@model MecanicApp.Pages.RegistroMecanicos.RegistroMecanicosModel
+@{
+    ViewData["Title"] = "RegistroMecanicos";
+
+}
+
+<h1>Mecánicos</h1>
+
+@if (!string.IsNullOrEmpty(Model.MensajeEliminacion))
+{
+    <label class="alert-info">@Model.MensajeEliminacion</label>
+}
+
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="texto" asp-for="Texto">
+
+        <div class="input-group-append">
+            <button class="input-group-text" type="submit">Buscar</button>
+        </div>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Habilidades Reparación</th>
+
+        </tr>
+    </thead>
+    @foreach (var mecanicos in Model.Mecanicos)
+    {
+        <tr>
+            <td> @mecanicos.Id </td>
+            <td>
+                @mecanicos.Nombres
+            </td>
+            <td> @mecanicos.Apellidos </td>
+            <td> @mecanicos.HabilidadRep </td>
+            <td> <a asp-page="./DetalleMecanico" asp-route-Id="@mecanicos.Id" class="btn btn-success" style="cursor:pointer">Ver detalle</a>  </td>
+            <td> <a asp-page="./Editar" asp-route-Id="@mecanicos.Id" class="btn btn-warning" style="cursor:pointer">Editar</a>  </td>
+            <td> <a asp-page="./Eliminar" asp-route-Id="@mecanicos.Id" class="btn btn-danger" style="cursor:pointer">Eliminar</a>  </td>
+        </tr>
+    }
+</table>
+
+<a asp-page="./Editar" class="btn btn-success">Crear Mecánico</a>
